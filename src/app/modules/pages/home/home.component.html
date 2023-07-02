@@ -1,0 +1,31 @@
+<div class="slider-container" #sliderContainer>
+    <div class="card-slider">
+        <div class="card" *ngFor="let card of cards.slice(0, 20)">
+            <img [src]="card?.images[0]" alt="Card Image" [routerLink]="['/products/', card?.id]">
+            <button class="addButton">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <div class="card-content" [routerLink]="['/products/', card?.id]">
+                <h3>{{ card?.title }}</h3>
+                <h3>{{ card?.category?.name }}</h3>
+                <p class="card-price">{{ card?.price | currency: 'USD' : 'symbol' : '1.2-2'}}</p>
+                <p>{{ card?.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="prev-button" #prevButton><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+    <button class="next-button" #nextButton><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+</div>
+
+<div class="section-container">
+    <h2 class="title-section">Categorias</h2>
+    <div class="category-container">
+        <div class="card-category"  *ngFor="let category of categories" [routerLink]="['/categories']">
+            <img [src]="category?.image" alt="Imagen de la categoría">
+            <div class="card-content-category">
+                <h3 class="category-title">{{category?.name | titlecase }}</h3>
+            </div>
+        </div>
+    </div>
+</div>

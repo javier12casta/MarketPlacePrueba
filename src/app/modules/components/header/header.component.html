@@ -1,3 +1,7 @@
+<div class="sidenav" *ngIf="isSidebarOpen">
+  <app-shoppingCart></app-shoppingCart>
+</div>
+
 <header style="position: sticky;top: 0;">
   <nav>
     <ul class='nav-bar'>
@@ -21,25 +25,25 @@
             </button>
           </div>
         </li>
-        <li><a href="">Home</a></li>
-        <li><a href="">Productos</a></li>
-        <li><a href="">Servicios</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/products">Productos</a></li>
+        <li><a routerLink="/categories">Categorias</a></li>
+        <!--         <li><a routerLink="/products">About</a></li>
+                <li><a routerLink="/products">Contact</a></li> -->
 
         <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
       </span>
       <li class="cart-container">
         <div >
-          <button class="cart"><i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+          <button class="cart" (click)="openSideBar()"><i class="fa-sharp fa-solid fa-cart-shopping" ></i></button>
           <span class="cart-counter">0</span>
         </div>
       </li>
       <!-- menu mobile -->
       <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-
-
-
     </ul>
   </nav>
+
+
 </header>
+
