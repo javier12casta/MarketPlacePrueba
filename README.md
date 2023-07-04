@@ -36,4 +36,6 @@ Run `npm install -g angular-cli-ghpages` to install angular library necesary to 
 Replace `[username] ` by your github user and replace `[repo]` by your repository name before run `ng build --prod --base-href https://[username].github.io/[repo]/`.
 Run `ngh --dir=dist/[project-name]` to deploy to gh-pages.
 
+## Documentation
+[Documentation](https://market-place-prueba.vercel.app/)
 
