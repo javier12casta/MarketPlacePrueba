@@ -153,7 +153,7 @@
     .prev-button,
     .next-button {
         position: absolute;
-        top: 160%;
+        top: 130%;
         transform: translateY(-80%);
         padding: 10px;
         font-size: 20px;
@@ -177,14 +177,19 @@
         opacity: 1;
     }
 
+    .carousel-container {
+        position: relative;
+        z-index: -1;
+    }
     .carousel-controls {
         display: flex;
         justify-content: center;
-        position: absolute;
+        position: relative;
         margin-top: 10px;
         top: 75% !important;
         left: 40% !important;
         opacity: 5;
+        z-index: 0;
     }
 
     .slide h3 {
@@ -298,6 +303,8 @@
     overflow: hidden;
     margin-left: 5%;
     margin-right: 5%;
+    position: relative;
+    z-index: -1;
 }
 
 .carousel {
@@ -351,6 +358,7 @@
     top: 67%;
     left: 50%;
     opacity: 5;
+    z-index: 0;
 }
 
 .carousel-controls h3 {
