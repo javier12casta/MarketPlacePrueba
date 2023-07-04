@@ -42,12 +42,19 @@ export class ShoppingCartComponent implements OnInit {
     });
 
   }
-
+  /**
+  * @author Javier Castañeda
+  * @purpose metodo que permite remover productos del carro
+  * @param {product} product objeto del producto a remover
+  */
   removeProductToSidebar(product: any): void {
     this.sidebarService.removeProduct(product);
   }
 
-
+  /**
+  * @author Javier Castañeda
+  * @purpose metodo que permite la descarga de productos en formato CSV, Xlsx de acuerdo a lo selecionado por el usuario por defecto usa Xlsx
+  */
   downloadProducts(): void {
     let type = this.selectValue.value || 'xlsx'
     switch (type) {
@@ -78,6 +85,10 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
 
+  /**
+  * @author Javier Castañeda
+  * @purpose metodo que permite la convercion del arreglo de productos a la estructura del formato CSV
+  */
   convertToCSV(products: any[]): string {
     const rows = [];
     const headers = ['Title', 'Price', 'Quantity', 'Description']; // Reemplaza con los campos relevantes de tu modelo de producto

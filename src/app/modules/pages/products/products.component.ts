@@ -32,7 +32,10 @@ export class ProductsComponent implements OnInit {
     });
     this.searchProducts();
   }
-
+  /**
+  * @author Javier Castañeda
+  * @purpose metodo para obtener los productos del carro
+  */
   searchProducts(){    
     const filters = {
       title: this.searchForm?.controls['searchTerm'].value || '',
@@ -43,9 +46,15 @@ export class ProductsComponent implements OnInit {
     };
     this.productService.getProductsBy(filters).subscribe((resp: any[]) => {
       this.products = resp;
+    },() => {
+      this.products = [];
     });
   }
-
+  /**
+  * @author Javier Castañeda
+  * @purpose metodo para agregar los productos del carro
+  * @param {product} product objeto del producto
+  */
   addProductToSidebar(product: any): void {
     this.sidebarService.addProduct(product);
   }

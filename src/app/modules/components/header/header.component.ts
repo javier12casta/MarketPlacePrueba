@@ -23,11 +23,17 @@ export class HeaderComponent implements OnInit {
       this.cartCounter = resp;    
     });
   }
-
+  /**
+  * @author Javier Castañeda
+  * @purpose metodo para abrir el sidenav del carro de productos
+  */
   openSideBar(){
     this.sidebarService.toggleSidebar();
   }
-
+  /**
+  * @author Javier Castañeda
+  * @purpose metodo para la busqueda por titulo del producto
+  */
   searchProducts(): void {
     const trimmedValue = this.searchForm.controls['searchValue'].value;
     if (trimmedValue) {
