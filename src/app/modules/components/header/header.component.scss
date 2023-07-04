@@ -15,6 +15,7 @@ body {
     align-items: center;
     list-style: none;
     position: relative;
+    top: 0;
     background-color: #181818;
     padding: 20px 20px;
     z-index: 80;
@@ -249,4 +250,10 @@ body {
     z-index: 100;
     border-left: 5px #181818;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);    
+}
+
+@media (max-width: 768px) {
+    .sidenav {
+        overflow-y: visible;
+    }
 }

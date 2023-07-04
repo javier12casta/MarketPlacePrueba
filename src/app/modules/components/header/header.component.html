@@ -1,29 +1,31 @@
-<div class="sidenav" *ngIf="isSidebarOpen">
-  <app-shoppingCart></app-shoppingCart>
-</div>
+
 
 <header style="position: sticky;top: 0;">
   <nav>
     <ul class='nav-bar'>
-      <li class='logo'><a href='#' class="logo_text">Bank Ink</a></li>
+      <li class='logo'><a routerLink="/" class="logo_text">Bank Ink</a></li>
       <li class="search-menu1">
-        <div class="search-container">
-          <input type="text" placeholder="Buscar...">
-          <button>
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+        <form [formGroup]="searchForm" (ngSubmit)="searchProducts()">
+          <div class="search-container">
+            <input type="text" placeholder="Buscar..." formControlName="searchValue" value="">
+            <button (click)="searchProducts()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
       </li>
 
       <input type='checkbox' id='check' />
       <span class="menu">
         <li class="search-menu2">
-          <div class="search-container">
-            <input type="text" placeholder="Search...">
-            <button>
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
+          <form [formGroup]="searchForm" (ngSubmit)="searchProducts()">
+            <div class="search-container">
+              <input type="text" placeholder="Buscar..." formControlName="searchValue" value="">
+              <button (click)="searchProducts()">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
         </li>
         <li><a routerLink="/">Inicio</a></li>
         <li><a routerLink="/products">Productos</a></li>
@@ -36,7 +38,7 @@
       <li class="cart-container">
         <div >
           <button class="cart" (click)="openSideBar()"><i class="fa-sharp fa-solid fa-cart-shopping" ></i></button>
-          <span class="cart-counter">0</span>
+          <span class="cart-counter">{{cartCounter}}</span>
         </div>
       </li>
       <!-- menu mobile -->

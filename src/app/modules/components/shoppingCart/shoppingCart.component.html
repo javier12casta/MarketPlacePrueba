@@ -1,26 +1,39 @@
+
 <div class="cart-container">
   <div class="cart-header">
-    <h2>Carrito de compras</h2>
+    <h2>Carro ({{products.length + ' productos'}})</h2>
   </div>
   <div>
+    <hr style="width: 100%;color: #313131;">
     <div class="cart-items">
-      <div class="cart-item">
+      <div class="cart-item" *ngFor="let uniqueProduct  of uniqueProducts">
         <div class="cart-item-image">
-          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd"/>
+          <img [src]="uniqueProduct.product?.images[0]"/>
         </div>
         <div class="cart-item-info">
           <div class="cart-item-name">
-            <p>{{'zapatos'}}</p>
+            <p>{{uniqueProduct.product?.title}}</p>
           </div>
         </div>
         <div class="cart-item-price">
-          <p>{{ 45000 | currency: 'USD' : 'symbol' : '1.2-2'}}</p>
+          <p>{{ uniqueProduct.product?.price | currency: 'USD' : 'symbol' : '1.2-2'}}</p>
         </div>
         <div class="cart-item-quantity">
-          <p>{{ 5 }}</p>
+          <p>{{ uniqueProduct.quantity }}</p>
+        </div>
+        <div>
+          <button class="remove-to-cart" (click)="removeProductToSidebar(uniqueProduct.product)"><i class="fa fa-trash" aria-hidden="true"></i></button>
         </div>
       </div>
-      <hr style="width: 100%;color: #313131;">
+    </div>
+    <hr style="width: 100%;color: #313131;">
+    <div class="download-container">
+      <select [formControl]="selectValue" class="select-input">
+        <option value="xlsx">xlsx</option>
+        <option value="CSV">CSV</option>
+      </select>
+      <button class="download-button" (click)="downloadProducts()">Descargar</button>
     </div>
   </div>
+
 </div>

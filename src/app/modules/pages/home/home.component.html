@@ -1,8 +1,44 @@
+<!-- <div class="carousel-container2" #sliderContainer2>
+    <div class="carousel2">
+      <div class="slide2" *ngFor="let product of cards.slice(0, 10)">
+        <img [src]="product.images[0]" alt="Product Image">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.price | currency: 'USD' : 'symbol' : '1.2-2' }}</p>
+      </div>
+    </div>
+    <div class="carousel-controls2">
+      <button class="prev-button2" #prevButton2><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+      <button class="next-button2" #nextButton2><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+    </div>
+</div> -->
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="slide" id="imagen">
+            <img [src]="carousel[0]?.images[0]" alt="Product Image" [routerLink]="['/products/', carousel[0]?.id]" />
+            <div>
+                <h3>{{ carousel[0]?.title }}</h3>
+            </div>
+            <!-- <p>{{ carousel[0]?.price | currency: 'USD' : 'symbol' : '1.2-2' }}</p> -->
+        </div>
+        <div class="carousel-controls">
+            <button class="prev-button2" (click)="prevSlide2()"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+            <h3>{{currentSlideIndex+1}}</h3>
+            <button class="next-button2" (click)="nextSlide2()"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="section-container">
+    <h2 class="title-section">Productos</h2>
+</div>
 <div class="slider-container" #sliderContainer>
     <div class="card-slider">
         <div class="card" *ngFor="let card of cards.slice(0, 20)">
             <img [src]="card?.images[0]" alt="Card Image" [routerLink]="['/products/', card?.id]">
-            <button class="addButton">
+            <button class="addButton" (click)="addProductToSidebar(card)">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
             <div class="card-content" [routerLink]="['/products/', card?.id]">
@@ -21,7 +57,8 @@
 <div class="section-container">
     <h2 class="title-section">Categorias</h2>
     <div class="category-container">
-        <div class="card-category"  *ngFor="let category of categories" [routerLink]="['/categories']">
+        <div class="card-category" *ngFor="let category of categories.slice(0, 4)" [routerLink]="['/products']"
+            [queryParams]="{categoryId: category.id}">
             <img [src]="category?.image" alt="Imagen de la categoría">
             <div class="card-content-category">
                 <h3 class="category-title">{{category?.name | titlecase }}</h3>

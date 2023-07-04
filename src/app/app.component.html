@@ -1,3 +1,6 @@
-<app-header></app-header>
+<app-header [cartCounter]="cartCounter"></app-header>
+<div class="sidenav" *ngIf="isSidebarOpen">
+    <app-shoppingCart></app-shoppingCart>
+</div>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
